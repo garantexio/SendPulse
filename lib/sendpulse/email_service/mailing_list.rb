@@ -44,7 +44,7 @@ module SendPulse
       end
 
       def update_variables(id, email, variables)
-        send_request("addressbooks/#{id}//emails/variable", 'POST',
+        send_request("addressbooks/#{id}/emails/variable", 'POST',
                      { addressBook_Id: id, email: email, variables: serialize(variables) })
       end
     end

@@ -54,6 +54,8 @@ module SendPulse
         token = {}
         token.merge!('Authorization': "Bearer #{@token}") if use_token
 
+        Rails.logger.debug message: "Send #{method} request to #{path}", headers: token, data: data
+
         case method
           when 'POST'
             request = Net::HTTP::Post.new(uri.request_uri, token)
