@@ -6,9 +6,9 @@ module SendPulse
   class Api
     attr_reader :client_id, :client_secret, :protocol, :token
 
-    def initialize(client_id, client_secret, protocol = 'https', token = '')
-      main_url = SendPulse::Host.main_url
-      @url = "#{protocol}://#{main_url}"
+    def initialize(client_id, client_secret, api_url = nil, protocol = 'https', token = '')
+      api_url ||= SendPulse::Host.main_url
+      @url = "#{protocol}://#{api_url}"
       @client_id = client_id
       @client_secret = client_secret
       @protocol = protocol
